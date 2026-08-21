@@ -45,6 +45,18 @@ input[type=text],input[type=number],select,textarea{width:100%;padding:11px;bord
 @media(max-width:760px){.grid2,.grid3,.canwant,.evidenceGrid{grid-template-columns:1fr}.routeMap,.pathPreview{grid-template-columns:1fr}.evidenceFlow{grid-template-columns:1fr 1fr}.heroVisual{border-radius:12px}.journeyTrack{grid-template-columns:repeat(7,minmax(78px,1fr));overflow-x:auto;padding-bottom:4px}.journeyStage{min-width:78px}}
 @media(max-width:480px){.evidenceFlow{grid-template-columns:1fr}.summaryStrip{grid-template-columns:1fr}}
 .module4Audio{margin-top:18px;padding:15px 16px;border:1px solid var(--line);border-radius:15px;background:#f7fbff}.module4AudioLabel{font-size:.78rem;font-weight:900;letter-spacing:.08em;color:#486581;margin-bottom:9px;text-transform:uppercase}.module4Audio audio{width:100%;max-width:560px}
+
+/* Progressive evidence reveal */
+.progressiveStage{display:none;opacity:0;transform:translateY(12px)}
+.progressiveStage.unlocked{display:block;animation:stageReveal .38s ease forwards}
+.progressiveStage.complete{border-left:5px solid var(--teal)}
+@keyframes stageReveal{to{opacity:1;transform:translateY(0)}}
+.stageFooter{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:14px;padding-top:12px;border-top:1px solid #e4eaee}
+.stageHint{font-size:12px;line-height:1.4;color:var(--muted);max-width:650px}
+.stageError{display:none;margin-top:10px;padding:9px 11px;border-radius:9px;background:#fff4e5;border:1px solid #f0cf96;color:#714d12;font-size:12px;font-weight:800}
+.stageCompleteTag{display:none;color:var(--green);font-size:11px;font-weight:900;letter-spacing:.04em;text-transform:uppercase}
+.progressiveStage.complete .stageCompleteTag{display:inline-block}
+@media(max-width:600px){.stageFooter{align-items:stretch}.stageFooter .primary{width:100%}}
 @media print{body{background:#fff} .hero,.inputPanels,.actions,details,.footer,.preDecision{display:none!important} main .wrap{padding:0} .panel{box-shadow:none;border:0} .result{display:block!important}.printOnly{display:block}}
 </style>
 </head>
@@ -106,16 +118,17 @@ input[type=text],input[type=number],select,textarea{width:100%;padding:11px;bord
   </div>
 </section>
 <div class="inputPanels">
-<section class="panel"><div class="step">Career Target</div><h2>What career are you deciding about?</h2>
+<section class="panel" id="stageTarget"><div class="step">Career Target</div><h2>What career are you deciding about?</h2>
 <p class="sub">Start typing the primary career you carried forward from BOOST. Choose the official occupation so the decision summary stays connected to the same occupational language used in earlier modules.</p>
 <div class="grid2">
 <div><label>Primary career target</label><div class="occWrap"><input id="target" type="text" autocomplete="off" placeholder="Start typing…"><input id="targetSoc" type="hidden"><div id="targetSuggest" class="suggest"></div></div><div id="targetChosen" class="chosen"></div></div>
 <div><label>Current / most recent occupation</label><div class="occWrap"><input id="currentOcc" type="text" autocomplete="off" placeholder="Optional — start typing…"><input id="currentOccSoc" type="hidden"><div id="currentOccSuggest" class="suggest"></div></div><div id="currentOccChosen" class="chosen"></div></div>
 </div>
 <div id="occupationFacts" class="callout" style="display:none"></div>
+<div class="stageFooter"><div><span class="stageCompleteTag">✓ Career target selected</span><div class="stageHint">Choose the official career target above. Your current / most recent occupation is optional.</div></div></div>
 </section>
 
-<section class="panel"><div class="step">Module 1 • Discover</div><h2>Career direction</h2>
+<section class="panel progressiveStage" id="stageDiscover"><div class="step">Module 1 • Discover</div><h2>Career direction</h2>
 <div class="grid2">
 <div><label>How did your interests align with this target?</label><select id="interest"><option value="">Choose…</option><option>Strong alignment</option><option>Moderate alignment</option><option>Lower alignment — still interested</option><option>Not sure</option></select></div>
 <div><label>Was this a starting point or longer-term destination?</label><select id="stage"><option value="">Choose…</option><option>Potential starting point</option><option>Longer-term career destination</option><option>Not sure</option></select></div>
@@ -125,9 +138,10 @@ input[type=text],input[type=number],select,textarea{width:100%;padding:11px;bord
 <label class="choice"><input type="radio" name="entryPoint" value="Yes"> Yes — a pathway starting point was identified</label>
 <label class="choice"><input type="radio" name="entryPoint" value="No"> No / not applicable</label>
 </div>
+<div class="stageFooter"><div><span class="stageCompleteTag">✓ Discover evidence added</span><div class="stageHint">Carry forward what Module 1 established about this career direction.</div></div><button type="button" class="primary" onclick="completeDiscover()">LOCK IN MY DISCOVER EVIDENCE →</button></div><div class="stageError" id="discoverErr">Complete all three Discover evidence items before continuing.</div>
 </section>
 
-<section class="panel"><div class="step">Module 2 • Validate</div><h2>What did the real world confirm?</h2>
+<section class="panel progressiveStage" id="stageValidate"><div class="step">Module 2 • Validate</div><h2>What did the real world confirm?</h2>
 <div class="grid3">
 <div><label>Job availability</label><select id="jobs"><option value="">Choose…</option><option>Strong evidence of openings</option><option>Some openings identified</option><option>Limited openings identified</option><option>Need more research</option></select></div>
 <div><label>Wage fit</label><select id="wageFit"><option value="">Choose…</option><option>Yes</option><option>Maybe</option><option>No</option></select></div>
@@ -135,9 +149,10 @@ input[type=text],input[type=number],select,textarea{width:100%;padding:11px;bord
 </div>
 <label>Earn-while-you-learn evidence</label>
 <select id="earnLearn"><option value="">Choose the Module 2 finding…</option><option>Strong Employment-Connected Pathway Evidence</option><option>Some Employment-Connected Pathway Evidence</option><option>Training-First May Require Further Consideration</option><option>More Research Needed</option></select>
+<div class="stageFooter"><div><span class="stageCompleteTag">✓ Validate evidence added</span><div class="stageHint">Confirm what jobs, wages, life fit, and employment-connected development showed you.</div></div><button type="button" class="primary" onclick="completeValidate()">ADD THIS TO MY EVIDENCE →</button></div><div class="stageError" id="validateErr">Complete all four Validate evidence items before continuing.</div>
 </section>
 
-<section class="panel"><div class="step">Module 3 • Mobility</div><h2>What can you already do?</h2>
+<section class="panel progressiveStage" id="stageMobility"><div class="step">Module 3 • Mobility</div><h2>What can your skills already do?</h2>
 <div class="canwant"><div class="cw"><b>CAN</b>Did BOOST identify direct-hire employment options based on your existing occupational or transferable skills?</div><div class="cw"><b>WANT</b>Are those options aligned with the direction you actually want to pursue?</div></div>
 <label>Direct-hire / immediate employment evidence</label>
 <div class="choiceGroup">
@@ -150,9 +165,10 @@ input[type=text],input[type=number],select,textarea{width:100%;padding:11px;bord
 <div><label>Were related H2/H3 mobility options identified?</label><select id="mobility"><option value="">Choose…</option><option>Yes</option><option>No</option><option>Need more research</option></select></div>
 <div><label>How large is the gap between you and the target?</label><select id="gap"><option value="">Choose…</option><option>No significant gap identified</option><option>Targeted / bridge-sized gap</option><option>Significant skill or credential gap</option><option>Need more evidence</option></select></div>
 </div>
+<div class="stageFooter"><div><span class="stageCompleteTag">✓ Mobility evidence added</span><div class="stageHint">Separate what you can already do from the gap that still remains.</div></div><button type="button" class="primary" onclick="completeMobility()">BRING MY EVIDENCE TOGETHER →</button></div><div class="stageError" id="mobilityErr">Complete the direct-hire, mobility, and gap evidence before continuing.</div>
 </section>
 
-<section class="panel"><div class="step">Decision Evidence</div><h2>What is actually standing between you and the target?</h2>
+<section class="panel progressiveStage" id="stageDecision"><div class="step">Module 4 • Decide</div><h2>What does your evidence support?</h2><p class="sub"><b>First, identify what is actually standing between you and the target.</b></p>
 <p class="sub">Check all that apply. These are barriers or gaps—not a request for a particular service.</p>
 <div class="choiceGroup grid2">
 <label class="choice"><input type="checkbox" name="barrier" value="Required credential or license"> Required credential or license</label>
@@ -167,7 +183,7 @@ input[type=text],input[type=number],select,textarea{width:100%;padding:11px;bord
 <label>After reviewing the evidence, which direction do you want to pursue?</label>
 <select id="direction"><option value="">Choose…</option><option value="work">Work Now — pursue employment using skills I already have</option><option value="move">Move Now — pursue a related in-demand opportunity</option><option value="earn">Earn & Learn — enter through employer-supported development, OJT, or apprenticeship</option><option value="build">Build Toward — pursue training because a documented gap remains</option><option value="explore">Explore Again — reconsider or research my target further</option></select>
 <label>Optional note for your Career Coach</label><textarea id="note" placeholder="What matters most about this decision? What evidence do you want to discuss?"></textarea>
-<div class="actions"><button class="primary" onclick="decide()">SHOW WHAT THE EVIDENCE SUPPORTS</button></div>
+<div class="actions"><button class="primary" onclick="decide()">SHOW WHAT MY EVIDENCE SUPPORTS</button></div>
 <div class="error" id="err">Complete the required evidence fields before generating the decision.</div>
 </section>
 </div>
@@ -218,11 +234,39 @@ const ALIASES={
 };
 function norm(s){return String(s||'').toLowerCase().replace(/[^a-z0-9]+/g,' ').trim()}
 function matches(q){const nq=norm(q);if(!nq)return[];let score=new Map();const add=(o,s,w)=>{if(!o)return;const old=score.get(o.soc);if(!old||s>old.s)score.set(o.soc,{o,s,w})};DATA.forEach(o=>{const t=norm(o.title);if(t===nq)add(o,100,'Official title');else if(t.startsWith(nq))add(o,92,'Title match');else if(t.includes(nq))add(o,84,'Title match');else{const ws=nq.split(' ').filter(Boolean);if(ws.length>1&&ws.every(w=>t.includes(w)))add(o,76,'Title words match')}});Object.entries(ALIASES).forEach(([a,ts])=>{const na=norm(a);if(na===nq||na.startsWith(nq)||nq.startsWith(na))ts.forEach((t,i)=>add(DATA.find(o=>o.title===t),98-i,'Common career term'))});return[...score.values()].sort((a,b)=>b.s-a.s||a.o.title.localeCompare(b.o.title)).slice(0,8)}
-function choose(field,soc){const o=DATA.find(x=>x.soc===soc);if(!o)return;$(field).value=o.title;$(field+'Soc').value=o.soc;$(field+'Chosen').innerHTML='✓ '+esc(o.title)+' • SOC '+esc(o.soc);$(field+'Suggest').classList.remove('show');if(field==='target')showFacts(o)}
+function choose(field,soc){const o=DATA.find(x=>x.soc===soc);if(!o)return;$(field).value=o.title;$(field+'Soc').value=o.soc;$(field+'Chosen').innerHTML='✓ '+esc(o.title)+' • SOC '+esc(o.soc);$(field+'Suggest').classList.remove('show');if(field==='target'){showFacts(o);markComplete('stageTarget');unlockStage('stageDiscover',true)}}
 function suggest(field){const box=$(field+'Suggest'),q=$(field).value.trim();$(field+'Soc').value='';$(field+'Chosen').textContent='';if(!q){box.classList.remove('show');return}const ms=matches(q);box.innerHTML=ms.length?ms.map(x=>`<button type="button" class="opt" onclick='choose(${JSON.stringify(field)},${JSON.stringify(x.o.soc)})'><b>${esc(x.o.title)}</b><small>${esc(x.w)} • SOC ${esc(x.o.soc)} • Pinal ${esc(x.o.h3||'not rated')}</small></button>`).join(''):'<div class="opt"><b>No match yet</b><small>Try another title.</small></div>';box.classList.add('show')}
-function setup(field){$(field).addEventListener('input',()=>suggest(field));$(field).addEventListener('blur',()=>setTimeout(()=>$(field+'Suggest').classList.remove('show'),150))}
+function setup(field){$(field).addEventListener('input',()=>{if(field==='target')resetProgressAfterTarget();suggest(field)});$(field).addEventListener('blur',()=>setTimeout(()=>$(field+'Suggest').classList.remove('show'),150))}
 function showFacts(o){const f=$('occupationFacts');f.style.display='block';f.innerHTML=`<b>${esc(o.title)}</b> • Pinal <b>${esc(o.h3||'—')}</b> • ${esc(o.sector||'Other')}<br><span style="color:#607482">Typical entry: ${esc(o.education||'Not listed')} • Typical OJT: ${esc(o.ojt||'Not listed')} • 25th percentile wage: ${money(o.p25)}/hr</span>`}
 setup('target');setup('currentOcc');
+
+function resetProgressAfterTarget(){
+ ['stageDiscover','stageValidate','stageMobility','stageDecision'].forEach(id=>{const el=$(id);if(el)el.classList.remove('unlocked','complete')});
+ const st=$('stageTarget');if(st)st.classList.remove('complete');
+ ['discoverErr','validateErr','mobilityErr'].forEach(id=>showStageError(id,false));
+ const r=$('result');if(r)r.classList.remove('show');
+}
+function unlockStage(id,scroll=false){
+ const el=$(id);if(!el)return;el.classList.add('unlocked');
+ if(scroll)setTimeout(()=>el.scrollIntoView({behavior:'smooth',block:'start'}),120);
+}
+function markComplete(id){const el=$(id);if(el)el.classList.add('complete')}
+function showStageError(id,show=true){const el=$(id);if(el)el.style.display=show?'block':'none'}
+function completeDiscover(){
+ const ok=$('interest').value&&$('stage').value&&rv('entryPoint');
+ showStageError('discoverErr',!ok);if(!ok)return;
+ markComplete('stageDiscover');unlockStage('stageValidate',true);
+}
+function completeValidate(){
+ const ok=$('jobs').value&&$('wageFit').value&&$('lifeFit').value&&$('earnLearn').value;
+ showStageError('validateErr',!ok);if(!ok)return;
+ markComplete('stageValidate');unlockStage('stageMobility',true);
+}
+function completeMobility(){
+ const ok=rv('direct')&&$('mobility').value&&$('gap').value;
+ showStageError('mobilityErr',!ok);if(!ok)return;
+ markComplete('stageMobility');unlockStage('stageDecision',true);
+}
 
 function required(){return $('targetSoc').value&&$('interest').value&&$('stage').value&&rv('entryPoint')&&$('jobs').value&&$('wageFit').value&&$('lifeFit').value&&$('earnLearn').value&&rv('direct')&&$('mobility').value&&$('gap').value&&$('direction').value}
 
