@@ -35,12 +35,12 @@ input[type=text],input[type=number],select,textarea{width:100%;padding:11px;bord
 .primary,.secondary,.ghost{border:0;border-radius:9px;padding:12px 16px;font-weight:900;cursor:pointer} .primary{background:var(--navy);color:#fff} .secondary{background:var(--gold);color:#1f2d36} .ghost{background:#e8eef1;color:var(--navy)} .actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:14px}
 .error{display:none;background:#fff0f0;color:#7b2d2d;border:1px solid #efc5c5;border-radius:9px;padding:10px;margin-top:10px;font-weight:800}
 .result{display:none} .result.show{display:block}
-.decisionHero{border-radius:16px;padding:20px;color:#fff;position:relative;overflow:hidden} .decisionHero.ready{background:linear-gradient(135deg,#236b4c,#3b966d)} .decisionHero.bridge{background:linear-gradient(135deg,#22658e,#438fc0)} .decisionHero.build{background:linear-gradient(135deg,#664393,#896bc0)} .decisionHero.reconsider{background:linear-gradient(135deg,#8b3c3c,#b25e55)} .decisionHero .big{font-size:clamp(34px,7vw,65px);font-weight:1000;letter-spacing:-2px} .decisionHero .route{font-weight:900;font-size:18px;margin:2px 0 8px}
+.decisionHero{border-radius:16px;padding:20px;color:#fff;position:relative;overflow:hidden} .decisionHero.work{background:linear-gradient(135deg,#176f66,#2a9d8f)} .decisionHero.move{background:linear-gradient(135deg,#22658e,#438fc0)} .decisionHero.earn{background:linear-gradient(135deg,#23715b,#4b9d7a)} .decisionHero.build{background:linear-gradient(135deg,#664393,#896bc0)} .decisionHero.explore{background:linear-gradient(135deg,#87563f,#aa765d)} .decisionHero .big{font-size:clamp(34px,7vw,65px);font-weight:1000;letter-spacing:-2px} .decisionHero .route{font-weight:900;font-size:18px;margin:2px 0 8px}
 .evidenceGrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px} .eCard{border:1px solid var(--line);border-radius:12px;padding:13px;background:#fff} .eCard h3{margin-top:0} .signal{display:flex;gap:8px;margin:7px 0;font-size:13px;line-height:1.35} .signal .dot{flex:0 0 18px;height:18px;border-radius:50%;display:grid;place-items:center;color:#fff;font-size:11px;font-weight:900} .good .dot{background:var(--green)} .caution .dot{background:var(--gold);color:#333} .neutral .dot{background:#7890a0}
 .routeMap{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;align-items:stretch;margin-top:14px} .routeNode{text-align:center;border:1px solid var(--line);background:#f6f8f9;border-radius:10px;padding:10px 7px;font-size:11px;font-weight:900} .routeNode.active{background:#fff8d9;border-color:var(--gold);box-shadow:inset 0 0 0 2px var(--gold)} .routeArrow{display:none}
 .disclaimer{font-size:11px;color:var(--muted);line-height:1.4;margin-top:12px} details{margin-top:12px;border-top:1px solid var(--line);padding-top:10px} summary{cursor:pointer;color:var(--muted);font-size:12px;font-weight:800}
 .footer{text-align:center;color:var(--muted);font-size:11px;padding:18px}
-.heroVisual{margin:16px 0 6px;background:#0f3047;border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,.18);position:relative;min-height:210px}.heroVisual img{display:block;width:100%;height:auto;max-height:520px;object-fit:cover}.visualFallback{display:none;min-height:250px;padding:30px;align-items:center;justify-content:center;text-align:center;color:#dcecf3;font-weight:800;line-height:1.5;background:linear-gradient(135deg,#113a55,#204f6a)}.visualFallback.show{display:flex}.heroGuide{display:grid;grid-template-columns:1.05fr 2fr;gap:14px;margin-top:16px}.guideIntro{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px}.guideIntro h2{font-size:20px;margin-top:4px}.evidenceFlow{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}.evidenceStep{background:#fff;border:1px solid var(--line);border-radius:14px;padding:13px;min-height:112px}.evidenceStep .num{display:inline-grid;place-items:center;width:27px;height:27px;border-radius:50%;background:var(--navy);color:#fff;font-weight:900;font-size:12px}.evidenceStep b{display:block;color:var(--navy);margin:8px 0 4px}.evidenceStep span{font-size:12px;line-height:1.35;color:var(--muted)}.pathPreview{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-top:12px}.pathCard{border:1px solid var(--line);border-top:4px solid var(--teal);background:#fff;border-radius:12px;padding:11px}.pathCard b{display:block;color:var(--navy);font-size:12px;margin-bottom:5px}.pathCard span{font-size:11px;line-height:1.35;color:var(--muted)}.pathCard:nth-child(2){border-top-color:#3e86a9}.pathCard:nth-child(3){border-top-color:#3b8e74}.pathCard:nth-child(4){border-top-color:#7554a8}.pathCard:nth-child(5){border-top-color:#9a6a51}.decisionLead{margin:10px 0 14px;padding:13px 15px;border-radius:11px;background:#f6f9fa;border:1px solid var(--line);font-size:13px;line-height:1.45}.routeNode{display:flex;flex-direction:column;justify-content:center;min-height:70px}.routeNode small{display:block;margin-top:4px;color:var(--muted);font-size:9px;line-height:1.25;font-weight:700}.routeNode.active small{color:#6c5a20}.routeNode.active{transform:translateY(-2px)}.evidenceTag{display:inline-block;background:#eaf5f4;color:#08756f;border:1px solid #c8e7e4;border-radius:999px;padding:5px 8px;font-size:10px;font-weight:900;margin:3px 4px 3px 0}.printOnly{display:none}
+.heroVisual{margin:16px 0 6px;background:#0f3047;border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,.18);position:relative;min-height:210px}.heroVisual img{display:block;width:100%;height:auto;max-height:520px;object-fit:cover}.visualFallback{display:none;min-height:250px;padding:30px;align-items:center;justify-content:center;text-align:center;color:#dcecf3;font-weight:800;line-height:1.5;background:linear-gradient(135deg,#113a55,#204f6a)}.visualFallback.show{display:flex}.heroGuide{display:grid;grid-template-columns:1.05fr 2fr;gap:14px;margin-top:16px}.guideIntro{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px}.guideIntro h2{font-size:20px;margin-top:4px}.evidenceFlow{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}.evidenceStep{background:#fff;border:1px solid var(--line);border-radius:14px;padding:13px;min-height:112px}.evidenceStep .num{display:inline-grid;place-items:center;width:27px;height:27px;border-radius:50%;background:var(--navy);color:#fff;font-weight:900;font-size:12px}.evidenceStep b{display:block;color:var(--navy);margin:8px 0 4px}.evidenceStep span{font-size:12px;line-height:1.35;color:var(--muted)}.pathPreview{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-top:12px}.pathCard{border:1px solid var(--line);border-top:4px solid var(--teal);background:#fff;border-radius:12px;padding:11px}.pathCard b{display:block;color:var(--navy);font-size:12px;margin-bottom:5px}.pathCard span{font-size:11px;line-height:1.35;color:var(--muted)}.pathCard:nth-child(2){border-top-color:#3e86a9}.pathCard:nth-child(3){border-top-color:#3b8e74}.pathCard:nth-child(4){border-top-color:#7554a8}.pathCard:nth-child(5){border-top-color:#9a6a51}.decisionLead{margin:10px 0 14px;padding:13px 15px;border-radius:11px;background:#f6f9fa;border:1px solid var(--line);font-size:13px;line-height:1.45}.routeNode{display:flex;flex-direction:column;justify-content:center;min-height:70px}.routeNode small{display:block;margin-top:4px;color:var(--muted);font-size:9px;line-height:1.25;font-weight:700}.routeNode.active small{color:#6c5a20}.routeNode.active{transform:translateY(-2px)}.evidenceTag{display:inline-block;background:#eaf5f4;color:#08756f;border:1px solid #c8e7e4;border-radius:999px;padding:5px 8px;font-size:10px;font-weight:900;margin:3px 4px 3px 0}.printOnly{display:none}.pathCard{position:relative;cursor:help;text-align:left;font:inherit;width:100%}.pathCard:focus{outline:3px solid rgba(11,61,104,.2);outline-offset:2px}.pathTip{display:none;position:absolute;z-index:20;left:8px;right:8px;top:calc(100% + 7px);background:#0b3158;color:#fff!important;border-radius:10px;padding:10px 11px;font-size:11px!important;line-height:1.4!important;box-shadow:0 10px 24px rgba(7,31,56,.22);font-weight:650}.pathTip:before{content:'';position:absolute;top:-6px;left:22px;border-left:6px solid transparent;border-right:6px solid transparent;border-bottom:6px solid #0b3158}.pathCard:hover .pathTip,.pathCard:focus .pathTip,.pathCard.tipOpen .pathTip{display:block}.pathHelp{display:inline-flex;align-items:center;justify-content:center;width:17px;height:17px;border-radius:50%;background:#eaf2f6;color:#0b3158;font-size:10px;font-weight:1000;margin-left:5px;vertical-align:1px}.routeNode{position:relative;cursor:help}.routeTip{display:none;position:absolute;z-index:30;left:5px;right:5px;bottom:calc(100% + 7px);background:#0b3158;color:#fff;border-radius:9px;padding:9px;font-size:10px;line-height:1.35;font-weight:650;box-shadow:0 8px 20px rgba(7,31,56,.22)}.routeNode:hover .routeTip,.routeNode:focus .routeTip,.routeNode.tipOpen .routeTip{display:block}.routeNode:focus{outline:3px solid rgba(11,61,104,.18);outline-offset:2px}
 @media(max-width:900px){.heroGuide{grid-template-columns:1fr}.evidenceFlow{grid-template-columns:1fr 1fr}.pathPreview{grid-template-columns:1fr 1fr 1fr}}
 @media(max-width:760px){.grid2,.grid3,.canwant,.evidenceGrid{grid-template-columns:1fr}.routeMap,.pathPreview{grid-template-columns:1fr}.evidenceFlow{grid-template-columns:1fr 1fr}.heroVisual{border-radius:12px}.journeyTrack{grid-template-columns:repeat(7,minmax(78px,1fr));overflow-x:auto;padding-bottom:4px}.journeyStage{min-width:78px}}
 @media(max-width:480px){.evidenceFlow{grid-template-columns:1fr}.summaryStrip{grid-template-columns:1fr}}
@@ -109,11 +109,11 @@ input[type=text],input[type=number],select,textarea{width:100%;padding:11px;bord
     <div class="step">Possible Next Moves</div>
     <h2>Different evidence can support different actions.</h2>
     <div class="pathPreview">
-      <div class="pathCard"><b>WORK NOW</b><span>Pursue employment using skills and experience you already possess.</span></div>
-      <div class="pathCard"><b>MOVE NOW</b><span>Use transferable skills to move into a related occupation or environment.</span></div>
-      <div class="pathCard"><b>EARN &amp; LEARN</b><span>Close a targeted gap through OJT, apprenticeship, mentorship, or employer-supported development.</span></div>
-      <div class="pathCard"><b>BUILD TOWARD</b><span>Use focused occupational training when a significant documented gap remains.</span></div>
-      <div class="pathCard"><b>EXPLORE AGAIN</b><span>Gather more evidence when the current target is not yet supported strongly enough.</span></div>
+      <button type="button" class="pathCard" aria-label="Work Now. More information" onclick="toggleTip(this)"><b>WORK NOW <span class="pathHelp">?</span></b><span>Pursue employment using skills and experience you already possess.</span><span class="pathTip">The evidence suggests you may already have the skills, experience, and required preparation to pursue the target occupation now. Training should not be assumed when the gap is already closed.</span></button>
+      <button type="button" class="pathCard" aria-label="Move Now. More information" onclick="toggleTip(this)"><b>MOVE NOW <span class="pathHelp">?</span></b><span>Use transferable skills to move into a related occupation or environment.</span><span class="pathTip">Your current skills may support a related in-demand occupation now, even when it is not your final career destination. This pathway protects the employment value you already have.</span></button>
+      <button type="button" class="pathCard" aria-label="Earn and Learn. More information" onclick="toggleTip(this)"><b>EARN &amp; LEARN <span class="pathHelp">?</span></b><span>Close a targeted gap through OJT, apprenticeship, mentorship, or employer-supported development.</span><span class="pathTip">A manageable gap remains, and there is actual evidence that an employer-connected pathway could close it while you work. Examples include OJT, Registered Apprenticeship, mentorship, or employer-supported development.</span></button>
+      <button type="button" class="pathCard" aria-label="Build Toward. More information" onclick="toggleTip(this)"><b>BUILD TOWARD <span class="pathHelp">?</span></b><span>Use focused occupational training when a significant documented gap remains.</span><span class="pathTip">The career still appears worth pursuing, but a documented technical, credential, license, or preparation gap likely requires training before entry. ETPL approval or participant preference alone does not determine investment.</span></button>
+      <button type="button" class="pathCard" aria-label="Explore Again. More information" onclick="toggleTip(this)"><b>EXPLORE AGAIN <span class="pathHelp">?</span></b><span>Gather more evidence when the current target is not yet supported strongly enough.</span><span class="pathTip">The current evidence is not strong enough to commit yet. The next step is more research, clarification, or possibly testing a different target—not treating the result as failure.</span></button>
     </div>
   </div>
 </section>
@@ -285,59 +285,117 @@ function decide(){
 function engine(e){
  const b=new Set(e.participant.barriers),supports=[],cautions=[];
  const m2=e.module2,m3=e.module3,m1=e.module1,p=e.participant;
- const jobsGood=m2.jobs==='Strong evidence of openings'||m2.jobs==='Some openings identified';
+ const jobsStrong=m2.jobs==='Strong evidence of openings';
+ const jobsSome=m2.jobs==='Some openings identified';
+ const jobsGood=jobsStrong||jobsSome;
  const jobsWeak=m2.jobs==='Limited openings identified';
- const fitNo=m2.wageFit==='No'||m2.lifeFit==='No'||b.has('Wage or life fit concern');
+ const jobsResearch=m2.jobs==='Need more research'||b.has('Not enough openings identified');
+ const wageNo=m2.wageFit==='No'||b.has('Wage or life fit concern');
+ const lifeNo=m2.lifeFit==='No'||b.has('Wage or life fit concern');
+ const fitNo=wageNo||lifeNo;
+ const fitUnclear=m2.wageFit==='Maybe'||m2.lifeFit==='Maybe';
  const directReady=m3.directHire==='yes-willing';
  const directDifferent=m3.directHire==='yes-different';
+ const directNone=m3.directHire==='no';
+ const directResearch=m3.directHire==='research';
+ const mobilityYes=m3.mobility==='Yes';
+ const mobilityResearch=m3.mobility==='Need more research';
  const noGap=m3.gap==='No significant gap identified'||b.has('Nothing significant');
- const bridgeGap=m3.gap==='Targeted / bridge-sized gap'||b.has('Work experience gap')||b.has('Employer-specific training');
+ const targetedGap=m3.gap==='Targeted / bridge-sized gap'||b.has('Work experience gap')||b.has('Employer-specific training');
  const bigGap=m3.gap==='Significant skill or credential gap'||b.has('Required credential or license')||b.has('Technical skill gap');
- const earnStrong=m2.earnLearn==='Strong Employment-Connected Pathway Evidence'||m2.earnLearn==='Some Employment-Connected Pathway Evidence';
+ const gapResearch=m3.gap==='Need more evidence';
+ const earnStrong=m2.earnLearn==='Strong Employment-Connected Pathway Evidence';
+ const earnSome=m2.earnLearn==='Some Employment-Connected Pathway Evidence';
+ const earnEvidence=earnStrong||earnSome;
+ const trainingFirst=m2.earnLearn==='Training-First May Require Further Consideration';
+ const earnResearch=m2.earnLearn==='More Research Needed';
 
  if(jobsGood)supports.push('Employer research identified job opportunity in the target field.');
  else cautions.push('Job availability needs stronger evidence or further research.');
  if(m2.wageFit==='Yes')supports.push('The wage evidence appears workable for the participant.');
- else if(m2.wageFit!=='Yes')cautions.push('Wage fit is not fully resolved.');
+ else cautions.push('Wage fit is not fully resolved.');
  if(m2.lifeFit==='Yes')supports.push('The work appears compatible with the participant’s current life considerations.');
- else if(m2.lifeFit!=='Yes')cautions.push('Life fit is not fully resolved.');
- if(earnStrong)supports.push('Module 2 identified employment-connected development or Registered Apprenticeship evidence.');
+ else cautions.push('Life fit is not fully resolved.');
+ if(earnEvidence)supports.push('Module 2 identified employment-connected development evidence that may support an Earn & Learn pathway.');
+ if(trainingFirst)cautions.push('Module 2 indicated that training-first may require consideration rather than assuming an employer-connected pathway.');
+ if(earnResearch)cautions.push('Employment-connected development evidence still needs research.');
  if(directReady)supports.push('Module 3 identified direct-hire options the participant is willing to pursue.');
  if(directDifferent)cautions.push('Direct-hire options exist, but they do not align with the participant’s preferred direction.');
- if(m3.mobility==='Yes')supports.push('Related in-demand mobility options were identified.');
+ if(directResearch)cautions.push('Immediate employment options still need additional exploration.');
+ if(mobilityYes)supports.push('Related in-demand mobility options were identified.');
+ if(mobilityResearch)cautions.push('Related mobility options still need additional research.');
  if(bigGap)cautions.push('A significant skill or credential gap remains between the participant and the target.');
- else if(bridgeGap)supports.push('The remaining gap appears targeted enough for a bridge strategy.');
+ else if(targetedGap)cautions.push('A targeted development gap remains and the method for closing it should be verified.');
+ if(gapResearch)cautions.push('The size of the remaining skill or credential gap is not yet clear.');
  if(b.has('Not enough openings identified'))cautions.push('The participant identified insufficient openings as a barrier.');
  if(m1.interest==='Strong alignment'||m1.interest==='Moderate alignment')supports.push('The target remains aligned with the participant’s interest evidence.');
- if(p.direction==='explore'||(jobsWeak&&fitNo)) return pack('RECONSIDER','Explore Again','The evidence does not currently support committing to this target without additional research or adjustment.',supports,cautions,'reconsider');
- if((directReady||noGap)&&jobsGood&&!fitNo&&(p.direction==='work'||p.direction==='move'||p.direction==='earn')) return pack('READY','Pursue Employment','Current evidence supports an employment-first search before assuming significant training is needed.',supports,cautions,'ready');
- if((earnStrong&&p.direction==='earn')||bridgeGap) return pack('BRIDGE','Earn & Learn / Targeted Development','The target appears supported, but the remaining gap may be best closed through employment-connected development, OJT, apprenticeship, or another targeted bridge.',supports,cautions,'bridge');
- if(bigGap&&jobsGood&&!fitNo) return pack('BUILD','Build Toward','The labor-market and fit evidence support continued pursuit, while a documented skill or credential gap may require significant development.',supports,cautions,'build');
- if(directDifferent&&p.direction==='build'&&bigGap&&jobsGood&&!fitNo) return pack('BUILD','Build Toward','Direct employment remains possible in existing skill areas, but the preferred target shows a documented development gap. Career Coach review should compare the value of retraining with available employment alternatives.',supports,cautions,'build');
- if(p.direction==='work'||p.direction==='move') return pack('READY','Pursue Employment','The participant’s direction is employment-focused and no stronger training-first signal overrides it. Validate the target openings and begin a focused employment search.',supports,cautions,'ready');
- if(p.direction==='earn') return pack('BRIDGE','Earn & Learn / Targeted Development','The participant prefers an employment-connected development path. Confirm the specific employer, OJT, or apprenticeship opportunity before acting.',supports,cautions,'bridge');
- if(p.direction==='build') return pack('BUILD','Build Toward','Training is the participant’s preferred direction, but the investment should proceed only when the documented gap, labor-market evidence, and funding criteria support it.',supports,cautions,'build');
- return pack('RECONSIDER','Explore Again','More evidence is needed before selecting a pathway.',supports,cautions,'reconsider');
+
+ // 1. More evidence is needed before committing.
+ if(p.direction==='explore'||(jobsWeak&&fitNo)||(jobsResearch&&(gapResearch||fitNo))||(gapResearch&&directResearch))
+   return pack('RECONSIDER','EXPLORE AGAIN','Gather More Evidence','The current evidence is not strong enough to commit to this target yet. Use the Career Coach conversation to resolve the unanswered labor-market, fit, or preparation questions.',supports,cautions,'explore','explore');
+
+ // 2. Significant training/credential gaps override a preference for Earn & Learn unless there is unusually strong evidence that the gap is employer-connected and targeted.
+ if(bigGap&&jobsGood&&!fitNo)
+   return pack('BUILD','BUILD TOWARD','Targeted Training / Skill Development','The target remains supported, but a significant documented skill, credential, or license gap still separates the participant from entry. Compare the most efficient training option with employment alternatives before investment.',supports,cautions,'build','build');
+
+ // 3. Earn & Learn requires affirmative employment-connected evidence AND a gap small enough to close that way.
+ if(targetedGap&&earnEvidence&&jobsGood&&!fitNo)
+   return pack('BRIDGE','EARN & LEARN','Employment-Connected Development','A manageable gap remains and Module 2 identified a realistic employer-connected way to close it through OJT, apprenticeship, mentorship, or employer-supported development.',supports,cautions,'earn','earn');
+
+ // 4. A targeted gap without employer-connected evidence is a Build signal, not automatically Earn & Learn.
+ if(targetedGap&&jobsGood&&!fitNo&&(trainingFirst||earnResearch||!earnEvidence))
+   return pack('BUILD','BUILD TOWARD','Targeted Training / Skill Development','The career appears supported, but the remaining gap is not currently backed by enough employer-connected development evidence. Verify whether focused occupational training is the most efficient way to close it.',supports,cautions,'build','build');
+
+ // 5. Move Now protects existing employment value when related in-demand mobility is available.
+ if(mobilityYes&&(directDifferent||p.direction==='move')&&jobsGood&&!fitNo)
+   return pack('READY','MOVE NOW','Use Transferable Skills','BOOST identified related in-demand options that can use the participant’s existing skills now. Compare these opportunities with the preferred destination before making a larger development investment.',supports,cautions,'move','move');
+
+ // 6. Work Now means the target itself is accessible with existing skills/credentials.
+ if((directReady||noGap)&&jobsGood&&!fitNo&&!bigGap&&!targetedGap)
+   return pack('READY','WORK NOW','Pursue Employment','Current evidence supports an employment-first search in the target occupation before assuming additional training is needed.',supports,cautions,'work','work');
+
+ // 7. Preference can break close ties, but it cannot manufacture missing evidence.
+ if(p.direction==='work'&&jobsGood&&!fitNo&&!bigGap&&!targetedGap)
+   return pack('READY','WORK NOW','Pursue Employment','The participant is employment-focused and the evidence does not show a meaningful training gap. Begin a focused search and validate employer requirements as applications progress.',supports,cautions,'work','work');
+ if(p.direction==='move'&&mobilityYes&&!fitNo)
+   return pack('READY','MOVE NOW','Use Transferable Skills','The participant prefers a related move and Module 3 identified in-demand mobility evidence. Pursue the related opportunity while keeping the longer-term destination visible.',supports,cautions,'move','move');
+ if(p.direction==='earn'&&earnEvidence&&targetedGap&&!fitNo)
+   return pack('BRIDGE','EARN & LEARN','Employment-Connected Development','The participant prefers an employer-connected development route and the evidence supports a manageable gap that may be closed while working. Confirm the specific opportunity before acting.',supports,cautions,'earn','earn');
+ if(p.direction==='build'&&(bigGap||targetedGap)&&jobsGood&&!fitNo)
+   return pack('BUILD','BUILD TOWARD','Targeted Training / Skill Development','The participant prefers training and the evidence shows a documented gap. Career Coach review should verify that the proposed training directly closes that gap and is the most efficient route to the target.',supports,cautions,'build','build');
+
+ return pack('RECONSIDER','EXPLORE AGAIN','Gather More Evidence','The evidence does not yet point clearly to one next move. Resolve the remaining questions before committing time or training resources.',supports,cautions,'explore','explore');
 }
-function pack(code,route,why,supports,cautions,cls){return{code,route,why,supports,cautions,cls}}
+function pack(internalCode,pathway,subtitle,why,supports,cautions,cls,key){return{internalCode,pathway,subtitle,why,supports,cautions,cls,key,code:pathway,route:subtitle}}
 function sig(text,type='good'){return `<div class="signal ${type}"><span class="dot">${type==='good'?'✓':type==='caution'?'!':'•'}</span><span>${esc(text)}</span></div>`}
 function renderResult(e){
  const d=e.decision,o=e.module1.target;
  $('decisionHero').className='decisionHero '+d.cls;
- $('decisionHero').innerHTML=`<div class="eyebrow" style="color:#fff">BOOST PATHWAY SIGNAL • ${esc(o.title)}</div><div class="big">${d.code}</div><div class="route">${esc(d.route)}</div><div>${esc(d.why)}</div>`;
- const nodes=[['work','WORK NOW','Use current skills'],['move','MOVE NOW','Transfer skills'],['earn','EARN & LEARN','Develop while employed'],['build','BUILD TOWARD','Targeted training'],['explore','EXPLORE AGAIN','Gather more evidence']];
- const active=d.code==='READY'?(e.participant.direction==='move'?'move':'work'):d.code==='BRIDGE'?'earn':d.code==='BUILD'?'build':'explore';
- $('routeMap').innerHTML=nodes.map(([k,t,sub])=>`<div class="routeNode ${k===active?'active':''}"><span>${t}</span><small>${sub}</small></div>`).join('');
- $('summaryStrip').innerHTML=`<div class="sum"><b>Career Target</b>${esc(o.title)}</div><div class="sum"><b>Pinal H3</b>${esc(o.h3||'—')}</div><div class="sum"><b>Earn & Learn</b>${esc(e.module2.earnLearn)}</div><div class="sum"><b>Gap</b>${esc(e.module3.gap)}</div>`;
+ $('decisionHero').innerHTML=`<div class="eyebrow" style="color:#fff">YOUR EVIDENCE POINTS TOWARD • ${esc(o.title)}</div><div class="big">${esc(d.pathway)}</div><div class="route">${esc(d.subtitle)}</div><div>${esc(d.why)}</div>`;
+ const nodes=[
+  ['work','WORK NOW','Use current skills','The target appears accessible now using skills, experience, and preparation you already possess.'],
+  ['move','MOVE NOW','Transfer skills','Related in-demand work may use your existing skills now, even if it is not your final destination.'],
+  ['earn','EARN & LEARN','Develop while employed','A manageable gap may be closed through a real employer-connected pathway such as OJT or apprenticeship.'],
+  ['build','BUILD TOWARD','Targeted training','A documented technical, credential, license, or preparation gap likely requires focused training before entry.'],
+  ['explore','EXPLORE AGAIN','Gather more evidence','The current evidence is not strong enough to commit yet; more research or a different target may be appropriate.']
+ ];
+ const active=d.key;
+ $('routeMap').innerHTML=nodes.map(([k,t,sub,tip])=>`<div class="routeNode ${k===active?'active':''}" tabindex="0" role="button" aria-label="${t}. ${tip}" onclick="toggleTip(this)"><span>${t}</span><small>${sub}</small><span class="routeTip">${tip}</span></div>`).join('');
+ $('summaryStrip').innerHTML=`<div class="sum"><b>Career Target</b>${esc(o.title)}</div><div class="sum"><b>Pinal H3</b>${esc(o.h3||'—')}</div><div class="sum"><b>Employment-Connected Evidence</b>${esc(e.module2.earnLearn)}</div><div class="sum"><b>Gap</b>${esc(e.module3.gap)}</div>`;
  $('supports').innerHTML=d.supports.length?d.supports.map(x=>sig(x)).join(''):sig('No strong supporting signal was recorded yet.','neutral');
  $('cautions').innerHTML=d.cautions.length?d.cautions.map(x=>sig(x,'caution')).join(''):sig('No major caution was identified in the evidence entered.','neutral');
- let coach=`<p><b>Primary discussion:</b> Does the evidence support ${esc(d.route.toLowerCase())} as the most efficient next step toward <b>${esc(o.title)}</b>?</p>`;
+ let coach=`<p><b>Primary discussion:</b> Does the evidence support <b>${esc(d.pathway)}</b> — ${esc(d.subtitle.toLowerCase())} — as the most efficient next step toward <b>${esc(o.title)}</b>?</p>`;
  if(e.module3.directHire==='yes-different')coach+=`<p><b>CAN vs. WANT:</b> BOOST identified employment value the participant can use now, but the participant wants a different direction. Compare the employment option, preferred target, time to entry, wage impact, and documented development gap before deciding on investment.</p>`;
  if(e.module1.stage==='Longer-term career destination'&&e.module1.pathwayEntry==='Yes')coach+=`<p><b>Career pathway:</b> This target was identified as a longer-term destination with an earlier industry entry point. Revisit whether entering the industry first would provide earnings, experience, and validation before a larger training investment.</p>`;
  if(e.participant.note)coach+=`<p><b>Participant note:</b> ${esc(e.participant.note)}</p>`;
  $('coachText').innerHTML=coach;
  $('result').classList.add('show');$('result').scrollIntoView({behavior:'smooth',block:'start'});
 }
+function toggleTip(el){
+ document.querySelectorAll('.pathCard.tipOpen,.routeNode.tipOpen').forEach(x=>{if(x!==el)x.classList.remove('tipOpen')});
+ el.classList.toggle('tipOpen');
+}
+document.addEventListener('click',e=>{if(!e.target.closest('.pathCard,.routeNode'))document.querySelectorAll('.tipOpen').forEach(x=>x.classList.remove('tipOpen'))});
 function downloadProgress(){
  if(!window.BOOST_MODULE4)return;
  const blob=new Blob([JSON.stringify(window.BOOST_MODULE4,null,2)],{type:'application/json'});
