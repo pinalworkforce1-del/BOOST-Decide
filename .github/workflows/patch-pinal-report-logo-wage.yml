@@ -1,0 +1,49 @@
+name: Patch Pinal report logo and wage precedence
+
+on:
+  push:
+    branches:
+      - pinal-wage-logo-2026-09-10
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: pinal-wage-logo-2026-09-10
+          fetch-depth: 0
+      - name: Patch report
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p=Path('career-decision-report.html')
+          s=p.read_text(encoding='utf-8')
+          s=s.replace(".brandSub{font-size:.78rem;color:#56697a;margin-top:2px}", ".brandSub{font-size:.78rem;color:#56697a;margin-top:2px}.brandWrap img{display:block;width:100%;max-width:220px;height:auto}")
+          s=s.replace('<div class="brandWrap"><div class="brandMain">ARIZONA@WORK</div><div class="brandSub">Pinal County</div></div>', '<div class="brandWrap"><img src="assets/images/pinal-logo.webp" alt="ARIZONA@WORK Pinal County"></div>')
+          old="vals=[M4.wageComparison?.baselineHourly,M2.currentHourlyWage,M2.wageBaseline?.hourly,p.currentHourlyWage,p.currentWageHourly,p.lastHourlyWage,M1.currentHourlyWage,S.currentHourlyWage]"
+          new="vals=[M2.currentHourlyWage,M2.wageBaseline?.hourly,p.currentHourlyWage,p.currentWageHourly,p.lastHourlyWage,M1.currentHourlyWage,S.currentHourlyWage,M4.wageComparison?.baselineHourly]"
+          if old not in s:
+              raise SystemExit('baseline precedence marker not found')
+          s=s.replace(old,new,1)
+          oldsave="S.participant.currentHourlyWage=n;S.module4=S.module4||M4;S.module4.wageComparison={...(S.module4.wageComparison||{}),baselineHourly:n,entryHourly:entryHourly(),medianHourly:medianHourly(),annualHours:2080,updatedAt:new Date().toISOString()};"
+          newsave="S.participant.currentHourlyWage=n;S.module2=S.module2||M2;S.module2.currentHourlyWage=n;S.module2.wageBaseline={hourly:n,annual:n*2080,annualHours:2080,source:'Participant current or most recent hourly wage',required:true,updatedAt:new Date().toISOString()};S.module4=S.module4||M4;S.module4.wageComparison={...(S.module4.wageComparison||{}),baselineHourly:n,entryHourly:entryHourly(),medianHourly:medianHourly(),annualHours:2080,updatedAt:new Date().toISOString()};"
+          if oldsave not in s:
+              raise SystemExit('saveBaseline marker not found')
+          s=s.replace(oldsave,newsave,1)
+          s=s.replace('Pinal Module 2 does not yet require this baseline. Add it here for this report; the value is saved into your BOOST journey.','This appears to be an older journey without a saved Module 2 wage baseline. Add it here once; it will be saved back into your BOOST journey.')
+          p.write_text(s,encoding='utf-8')
+          PY
+      - name: Commit patch
+        shell: bash
+        run: |
+          if git diff --quiet; then exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add career-decision-report.html
+          git commit -m "Use Pinal logo and Module 2 wage baseline in report"
+          git push origin HEAD:pinal-wage-logo-2026-09-10
