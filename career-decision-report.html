@@ -58,12 +58,14 @@ participantBtn.addEventListener('click',()=>{app.classList.remove('coachMode');p
 coachBtn.addEventListener('click',()=>{app.classList.add('coachMode');coachBtn.classList.add('active');participantBtn.classList.remove('active')});
 const committed=module4Committed();
 if(!committed){
- printBtn.disabled=true;printBtn.style.opacity='.45';printBtn.style.cursor='not-allowed';
  mapLink.setAttribute('aria-disabled','true');mapLink.style.opacity='.45';
- printHint.textContent='Save Module 4 first. Return to Module 4 to commit your results before printing or returning to the BOOST map.';
+ printHint.textContent='PREVIEW — This report has not been saved as a completed BOOST module. Return to Module 4 and select Save Results & Return to BOOST after reviewing it.';
+ const badge=document.createElement('div');badge.className='intro';badge.style.cssText='background:#fff3d1;border:2px solid #d6a23b;color:#533d10;padding:12px 18px;margin:12px auto;max-width:980px;border-radius:10px';
+ badge.innerHTML='<strong>Unsaved Career Decision Report Preview</strong><p style="margin:5px 0 0">You may review or print this report. Printing does not save Module 4. Return to Module 4 and use Save Results & Return to BOOST to confirm completion.</p>';
+ document.getElementById('app').insertAdjacentElement('beforebegin',badge);
 }
-printBtn.addEventListener('click',()=>{if(!module4Committed()){alert('Save your Module 4 results first. Return to Module 4, use Save Results & Return to BOOST, then reopen the report.');return}window.print()});
-mapLink.addEventListener('click',e=>{if(!module4Committed()){e.preventDefault();alert('Your Module 4 progression has not been saved yet. Return to Module 4 and save your results before going back to the BOOST map.')}});
+printBtn.addEventListener('click',()=>window.print());
+mapLink.addEventListener('click',e=>{if(!module4Committed()){e.preventDefault();alert('This report is an unsaved preview. Return to Module 4 and save your results before going back to the BOOST map.')}});
 render();
 </script>
 <script src="alignment-language-v1.js?v=20261015a"></script>
