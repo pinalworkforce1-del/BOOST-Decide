@@ -122,6 +122,22 @@ function finishToPortal(){if(window.parent&&window.parent!==window){window.paren
 $('decide').addEventListener('click',showResult);$('redo').addEventListener('click',()=>$('questionPanel').scrollIntoView({behavior:'smooth'}));$('differentCareer').addEventListener('click',()=>$('careerPanel').scrollIntoView({behavior:'smooth'}));$('openReport').addEventListener('click',()=>{if(!module4Committed()){alert('Save your Module 4 results before opening the Career Decision Report.');return}window.open('career-decision-report.html','_blank','noopener')});$('finishFromModule').addEventListener('click',finishToPortal);$('nativeFinish').addEventListener('click',finishToPortal);$('nativeBack').addEventListener('click',e=>{e.preventDefault();if($('result').classList.contains('show')&&!module4Committed()){alert('Save your Module 4 results before returning to the BOOST map so your progression is not lost.');return}window.top.location.href=MAP});
 window.__BOOST_MODULE4_NATIVE='20260927-save-before-report';
 renderCareers();attachAudio();syncReportAccess();
+// Restore prior inputs for viewing only. Do not recalculate, auto-submit or change dates.
+(function showSavedDecisionInputs(){
+ const previous=state?.module4||{};
+ const soc=String(previous.selectedSoc||previous.career?.soc||'');
+ if(soc&&selected.some(o=>String(o.soc)===soc)){
+   selectCareer(soc);
+   for(const [field,value] of Object.entries(previous.answers||{})){
+     const inputs=[...document.querySelectorAll('input[type="radio"]')].filter(el=>el.name===field&&el.value===String(value));
+     if(inputs[0])inputs[0].checked=true;
+   }
+   const banner=document.createElement('p');
+   banner.className='muted';
+   banner.textContent='Your saved choices have been restored. Review the answers before generating any new direction.';
+   $('questionPanel')?.prepend(banner);
+ }
+})();
 </script>
 
 <script id="boost-modern-rosie-ui">
