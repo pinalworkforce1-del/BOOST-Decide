@@ -118,7 +118,7 @@ function syncReportAccess(){
  if(btn)btn.disabled=!committed;
  if(note&&committed)note.innerHTML='<b>Module 4 is saved.</b> Your Career Decision Report is now safe to open or print. You can also return to the BOOST map.';
 }
-function finishToPortal(){if(window.parent&&window.parent!==window){window.parent.postMessage({type:'boost-module4-finish-request'},'https://pinalworkforce1-del.github.io');return}window.location.href=MAP}
+function finishToPortal(){if(window.parent&&window.parent!==window){window.parent.postMessage({type:'boost-module4-finish-request'},'*');return}window.location.href=MAP}
 $('decide').addEventListener('click',showResult);$('redo').addEventListener('click',()=>$('questionPanel').scrollIntoView({behavior:'smooth'}));$('differentCareer').addEventListener('click',()=>$('careerPanel').scrollIntoView({behavior:'smooth'}));$('openReport').addEventListener('click',()=>{if(!module4Committed()){alert('Save your Module 4 results before opening the Career Decision Report.');return}window.open('career-decision-report.html','_blank','noopener')});$('finishFromModule').addEventListener('click',finishToPortal);$('nativeFinish').addEventListener('click',finishToPortal);$('nativeBack').addEventListener('click',e=>{e.preventDefault();if($('result').classList.contains('show')&&!module4Committed()){alert('Save your Module 4 results before returning to the BOOST map so your progression is not lost.');return}window.top.location.href=MAP});
 window.__BOOST_MODULE4_NATIVE='20260927-save-before-report';
 renderCareers();attachAudio();syncReportAccess();
